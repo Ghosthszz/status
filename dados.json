@@ -8,5 +8,10 @@
         "username": "janeSmith",
         "email": "jane@example.com",
         "password": "anotherSecurePassword456"
+    },
+    {
+        "username": "Gustavo960",
+        "email": "gustavo@example.com",
+        "password": "securePass123"
     }
 ]
